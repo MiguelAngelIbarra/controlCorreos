@@ -1,0 +1,97 @@
+<?php
+session_start();
+include 'config.php';
+// Función para escribir en el log de errores
+function log_error($message) {
+    $log_file = 'D:\xampp\htdocs\Seguridad\error_log.txt'; // Ruta del archivo de log
+    $timestamp = date("Y-m-d H:i:s"); // Fecha y hora actuales
+    $ip_address = $_SERVER['REMOTE_ADDR']; // IP del cliente
+    $log_message = "[$timestamp] - $ip_address - $message\n";
+    
+    // Escribe el mensaje en el archivo de log
+    file_put_contents($log_file, $log_message, FILE_APPEND);
+}
+
+// Verificar si el formulario fue enviado
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['correo_electronico']) && isset($_POST['contrasena'])) {
+        $correo_electronico = filter_var($_POST['correo_electronico'], FILTER_SANITIZE_EMAIL);
+        $contrasena = $_POST['contrasena'];
+
+        // Consulta en la base de datos si el correo existe
+        $stmt = $pdo->prepare("SELECT * FROM estudiantes WHERE correo_electronico = :correo_electronico");
+        $stmt->execute(['correo_electronico' => $correo_electronico]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($user) 
+        {
+            // Iniciar sesión exitoso
+            $_SESSION['usuario'] = $user['correo_electronico'];
+            log_error("Usuario inicio sesion correcamente: $correo_electronico");
+            header("Location: dashboard.php");
+            exit();
+        } 
+        else 
+        {
+            if (!isset($_SESSION['contEstatus'])) {
+                $_SESSION['contEstatus'] = 1;
+            }
+            // Correo no registrado
+            if ($_SESSION['contEstatus'] == 1) 
+            {
+                $stmt = $pdo->prepare("INSERT INTO correos_bloqueados (correo_electronico, estatus) VALUES (:correo_electronico, 'proceso')");
+                $stmt->execute(['correo_electronico' => $correo_electronico]);
+                $_SESSION['contEstatus'] = 2;
+                log_error("Intento de inicio de sesión con correo no válido, primer intento: $correo_electronico");
+                // Almacenar el mensaje de alerta en la sesión
+                $_SESSION['mensaje_alerta'] = "Correo no válido. Por favor, verifica tus datos e intenta nuevamente.";
+
+                // Redirigir al usuario a index.php
+                header("Location: index.php");
+                exit();
+            }
+            elseif ($_SESSION['contEstatus'] == 2)
+            {
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+                {
+                    if (isset($_POST['correo_electronico'])) 
+                    {
+                        $correo_electronico = filter_var($_POST['correo_electronico'], FILTER_SANITIZE_EMAIL);
+                        // Consulta en la base de datos si el correo existe
+                        $stmt = $pdo->prepare("SELECT * FROM correos_bloqueados WHERE correo_electronico = :correo_electronico");
+                        $stmt->execute(['correo_electronico' => $correo_electronico]);
+                        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+                        if($user)
+                        {
+                            $_SESSION['usuario'] = $user['correo_electronico'];
+
+                            // Solo actualiza el registro donde el correo coincida con el del usuario
+                            $stmt = $pdo->prepare("UPDATE correos_bloqueados SET estatus = 'bloqueado' WHERE correo_electronico = :correo_electronico");
+                            $stmt->bindParam(':correo_electronico', $user['correo_electronico']);
+                            $stmt->execute();
+                        
+                            log_error("Intento de inicio de sesión con correo no válido, SEGUNDO intento: {$user['correo_electronico']}");
+                            log_error("Se bloqueó el correo: {$user['correo_electronico']}");
+                            //echo("Se bloqueó el correo: {$user['correo_electronico']}. Comunícate con el administrador.");
+                            $_SESSION['mensaje_alerta_fin'] = "Se bloqueó el correo: {$user['correo_electronico']}. Comunícate con el administrador.";
+                            //header("Location: error.php");
+                            exit();
+                        }
+
+                    }
+                    
+                    
+                }
+            }
+        }
+    } else {
+        // Si no se recibieron los datos necesarios, redirigir al login
+        header("Location: index.php");
+        exit();
+    }
+} else {
+    // Si no se recibió el formulario, redirigir al login
+    header("Location: index.php");
+    exit();
+}
+?>

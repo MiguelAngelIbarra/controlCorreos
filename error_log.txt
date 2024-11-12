@@ -1,0 +1,39 @@
+[2024-11-11 20:13:45] - ::1 - Intento de inicio de sesión con correo no válido, primer intento: maibarra641@gmail.com
+[2024-11-11 20:13:58] - ::1 - Intento de inicio de sesión con correo no válido, SEGUNDO intento: maibarra641@gmail.com
+[2024-11-11 20:13:58] - ::1 - Se bloqueó el correo: maibarra641@gmail.com
+[2024-11-11 20:14:43] - ::1 - Intento de inicio de sesión con correo no válido, primer intento: DENI@GMAIL
+[2024-11-11 20:14:50] - ::1 - Intento de inicio de sesión con correo no válido, SEGUNDO intento: DENI@GMAIL
+[2024-11-11 20:14:50] - ::1 - Se bloqueó el correo: DENI@GMAIL
+[2024-11-11 20:20:02] - ::1 - Intento de inicio de sesión con correo no válido, primer intento: ISET@GMAIL.COM
+[2024-11-11 20:20:09] - ::1 - Intento de inicio de sesión con correo no válido, SEGUNDO intento: ISET@GMAIL.COM
+[2024-11-11 20:20:09] - ::1 - Se bloqueó el correo: ISET@GMAIL.COM
+[2024-11-11 20:23:03] - ::1 - Intento de inicio de sesión con correo no válido, primer intento: LIZ@GMAIL.COM
+[2024-11-11 20:23:14] - ::1 - Intento de inicio de sesión con correo no válido, SEGUNDO intento: LIZ@GMAIL.COM
+[2024-11-11 20:23:14] - ::1 - Se bloqueó el correo: LIZ@GMAIL.COM
+[2024-11-11 20:27:45] - ::1 - Intento de inicio de sesión con correo no válido, SEGUNDO intento: LIZ@GMAIL.COM
+[2024-11-11 20:27:45] - ::1 - Se bloqueó el correo: LIZ@GMAIL.COM
+[2024-11-11 20:33:20] - ::1 - Intento de inicio de sesión con correo no válido, primer intento: leo@gmail.com
+[2024-11-11 20:33:27] - ::1 - Intento de inicio de sesión con correo no válido, SEGUNDO intento: leo@gmail.com
+[2024-11-11 20:33:27] - ::1 - Se bloqueó el correo: leo@gmail.com
+[2024-11-11 21:04:32] - ::1 - Usuario inició sesión correctamente: jacinto@tecnm.com
+[2024-11-11 21:04:56] - ::1 - Usuario inició sesión correctamente: jacinto@tecnm.com
+[2024-11-11 22:12:40] - ::1 - Intento de inicio de sesión con correo no válido, primer intento: alfredo@fmail.com
+[2024-11-11 22:12:47] - ::1 - Intento de inicio de sesión con correo no válido, SEGUNDO intento: alfredo@fmail.com
+[2024-11-11 22:12:47] - ::1 - Se bloqueó el correo: alfredo@fmail.com
+[2024-11-11 22:14:39] - ::1 - Usuario inició sesión correctamente: jacinto@tecnm.com
+[2024-11-11 22:15:26] - ::1 - Intento de inicio de sesión con correo no válido, primer intento: ivarra@gmail.com
+[2024-11-11 22:15:34] - ::1 - Intento de inicio de sesión con correo no válido, SEGUNDO intento: ivarra@gmail.com
+[2024-11-11 22:15:34] - ::1 - Se bloqueó el correo: ivarra@gmail.com
+[2024-11-11 22:15:58] - ::1 - Usuario inició sesión correctamente: jacinto@tecnm.com
+[2024-11-11 22:30:04] - ::1 - Intento de inicio de sesión con correo no válido, primer intento: leonardo@gmail.com
+[2024-11-11 22:30:16] - ::1 - Intento de inicio de sesión con correo no válido, SEGUNDO intento: leonardo@gmail.com
+[2024-11-11 22:30:16] - ::1 - Se bloqueó el correo: leonardo@gmail.com
+[2024-11-11 22:31:33] - ::1 - Intento de inicio de sesión con correo no válido, primer intento: eli@gmail.com
+[2024-11-11 22:31:37] - ::1 - Intento de inicio de sesión con correo no válido, SEGUNDO intento: eli@gmail.com
+[2024-11-11 22:31:37] - ::1 - Se bloqueó el correo: eli@gmail.com
+[2024-11-11 22:37:07] - ::1 - Intento de inicio de sesión con correo no válido, primer intento: maibarrra641@gmail.com
+[2024-11-11 22:37:12] - ::1 - Intento de inicio de sesión con correo no válido, SEGUNDO intento: maibarrra641@gmail.com
+[2024-11-11 22:37:12] - ::1 - Se bloqueó el correo: maibarrra641@gmail.com
+[2024-11-11 22:37:51] - ::1 - Administrador inició sesión correctamente: jacinto@tecnm.com
+[2024-11-11 22:44:04] - ::1 - El estatus de DENI@GMAIL ha sido actualizado a activo.
+[2024-11-11 23:00:49] - ::1 - Usuario inició sesión correctamente: yvipt@outlook.com
